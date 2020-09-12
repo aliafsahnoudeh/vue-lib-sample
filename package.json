@@ -1,5 +1,11 @@
 {
   "name": "vue-lib-sample",
+  "author": {
+    "name": "Ali Afsahnoudeh",
+    "email": "ali.afsah1988@gmail.com",
+    "url": "http://aliafsah.com"
+  },
+  "repository": "github:aliafsah1988/vue-lib-sample",
   "version": "1.0.0",
   "private": false,
   "main": "./dist/vue-lib-sample.common.js",
