@@ -16,7 +16,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .a-button {
   font-weight: 500;
   outline: 0;
