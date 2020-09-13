@@ -1,5 +1,5 @@
 ## Introduction
-I was working on a project written with Nuxt.js (https://nuxtjs.org/). As you know Nuxt.js is created on top of the Vue.js (https://vuejs.org/), so they share the same component based approach. And based on that, we split the whole application into small and reusable components.<br/>
+I was working on a project written with [Nuxt.js](https://nuxtjs.org/). As you know Nuxt.js is created on top of the [Vue.js](https://vuejs.org/), so they share the same component based approach. And based on that, we split the whole application into small and reusable components.<br/>
 
 We didn’t use any ready-to-use UI library/framework for our components (such as Quasar, Vuetify) so all of our components were written by our team, because our UI designers were very detailed and we need to have flexibility and customization in any level to create pixel perfect user interfaces based on their designs.
 We kept all of our components inside the components directory of our Nuxt.js app as it recommends.
