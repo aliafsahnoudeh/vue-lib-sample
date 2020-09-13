@@ -9,10 +9,10 @@ After a while we had a demand to create a dashboard (admin panel) for our intern
 
 Long story short, we must put all of our components in a separated project and use it in our main website and newly created dashboard as a dependency. Which seems a best practice to me so far and many people do this around the globe.<br/>
 
-So this new project should contain our components and these components should be used in other projects. So we have no pages here! There is no point to have some empty pages or some pages to just show a bunch of components and it’s a waste of energy and time (because we can use a storybook (https://storybook.js.org/) and I’m going to talk about it in another article). This led me to find out about vue library projects. These projects have no App.vue (as a starting point for a showable web application) and just contain a bunch of components, helpers, utils and other stuff to be shared and used in a couple of other projects. We can write proper tests for them and keep any related logic and functionality there. The upper layer (the other apps which use our projects) don’t need to know about our internal stuff and with a proper build they can use it like any other dependencies.<br/>
+So this new project should contain our components and these components should be used in other projects. So we have no pages here! There is no point to have some empty pages or some pages to just show a bunch of components and it’s a waste of energy and time (because we can use a [storybook](https://storybook.js.org/) and I’m going to talk about it in another article). This led me to find out about vue library projects. These projects have no App.vue (as a starting point for a showable web application) and just contain a bunch of components, helpers, utils and other stuff to be shared and used in a couple of other projects. We can write proper tests for them and keep any related logic and functionality there. The upper layer (the other apps which use our projects) don’t need to know about our internal stuff and with a proper build they can use it like any other dependencies.<br/>
 
 ## Solution
-Fortunately for us, vue-cli (https://cli.vuejs.org/) made it very easy by a few steps which I’m going to explain here. It uses the Webpack (https://webpack.js.org/) behind the scenes and provides lots of useful tools.
+Fortunately for us, [vue-cli](https://cli.vuejs.org/) made it very easy by a few steps which I’m going to explain here. It uses the [Webpack](https://webpack.js.org/) behind the scenes and provides lots of useful tools.
 Of Course there are other ways like using Webpack directly which is more flexible but we didn’t need that kind of flexibility and we were out of time.
 If you don’t know about Webpack  and how to configure it, I strongly recommend to take a deep look at it first. If you just use things like vue-cli and don’t learn about what they’re doing behind the scenes, it might get you away from basic stuff and deep knowledge which will cause you many problems in the future and it’s a poison for any kind of engineer.<br/>
 
@@ -27,8 +27,8 @@ npm install -g @vue/cli
 vue create [your-awesome-project]
 ```
 3. Set your required configurations:
-I’m just choosing Babel (https://babeljs.io/) and nothing more to have a very light project.
-4. Go to your root directory and open the project with your preferred editor or IDE. I use VsCode (https://code.visualstudio.com/). 
+I’m just choosing [Babel](https://babeljs.io/) and nothing more to have a very light project.
+4. Go to your root directory and open the project with your preferred editor or IDE. I use [VsCode](https://code.visualstudio.com/). 
 5. Run the project with just typing:
 ```
 npm run serve
@@ -88,7 +88,7 @@ By that we’re saying to main.js to export everything in components directory a
 ```
 "build": "vue-cli-service build --target lib --name ui-components src/main.js"
 ```
-By using --target we can specify the type of build we want (https://cli.vuejs.org/guide/build-targets.html). Also we can declare a name and an entry point to start the building process and Webpack, in our case main.js.
+By using --target we can specify the type of build we want ([more details here](https://cli.vuejs.org/guide/build-targets.html)). Also we can declare a name and an entry point to start the building process and Webpack, in our case main.js.
 When you run npm run build, this script is gonna build a folder (by default dist) inside your root directory by webpack and we told vue.js to make it as a library and not a website.
 
 10. By running the build script, as you can see we have dist folder like this:<br>
