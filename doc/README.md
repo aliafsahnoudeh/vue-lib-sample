@@ -1,22 +1,22 @@
-##Introduction<br/>
+## Introduction
 I was working on a project written with Nuxt.js (https://nuxtjs.org/). As you know Nuxt.js is created on top of the Vue.js (https://vuejs.org/), so they share the same component based approach. And based on that, we split the whole application into small and reusable components.<br/>
 
 We didn’t use any ready-to-use UI library/framework for our components (such as Quasar, Vuetify) so all of our components were written by our team, because our UI designers were very detailed and we need to have flexibility and customization in any level to create pixel perfect user interfaces based on their designs.
 We kept all of our components inside the components directory of our Nuxt.js app as it recommends.
 
-##A demand<br/>
+## A demand
 After a while we had a demand to create a dashboard (admin panel) for our internal works and other activities which we couldn’t put them to the main website and it was better we kept them in a separate project. So we chose Vue.js again because it’s a stack of our main website (we tried to keep the same stack in our front-end projects as possible) and most importantly we needed lots of components on Vue.js which we already had on our main website and obviously we didn’t want to write them from the  scratch (because it’s ridiculous!) and we definitely didn’t want to keep them in two separate places and make maintaining a disaster in the future. Imagine every single change and bug fix should be taken care of in two places!!! Impossible right! Or should I say stupid!<br/>
 
 Long story short, we must put all of our components in a separated project and use it in our main website and newly created dashboard as a dependency. Which seems a best practice to me so far and many people do this around the globe.<br/>
 
 So this new project should contain our components and these components should be used in other projects. So we have no pages here! There is no point to have some empty pages or some pages to just show a bunch of components and it’s a waste of energy and time (because we can use a storybook (https://storybook.js.org/) and I’m going to talk about it in another article). This led me to find out about vue library projects. These projects have no App.vue (as a starting point for a showable web application) and just contain a bunch of components, helpers, utils and other stuff to be shared and used in a couple of other projects. We can write proper tests for them and keep any related logic and functionality there. The upper layer (the other apps which use our projects) don’t need to know about our internal stuff and with a proper build they can use it like any other dependencies.<br/>
 
-##Solution<br/>
+## Solution
 Fortunately for us, vue-cli (https://cli.vuejs.org/) made it very easy by a few steps which I’m going to explain here. It uses the Webpack (https://webpack.js.org/) behind the scenes and provides lots of useful tools.
 Of Course there are other ways like using Webpack directly which is more flexible but we didn’t need that kind of flexibility and we were out of time.
 If you don’t know about Webpack  and how to configure it, I strongly recommend to take a deep look at it first. If you just use things like vue-cli and don’t learn about what they’re doing behind the scenes, it might get you away from basic stuff and deep knowledge which will cause you many problems in the future and it’s a poison for any kind of engineer.<br/>
 
-##How to create and use<br/>
+## How to create and use
 Now the steps:<br/>
 1. Install vue-cli to use its tools and templates. By below command we’re going to install it globally on our machine:<br/>
 ```
