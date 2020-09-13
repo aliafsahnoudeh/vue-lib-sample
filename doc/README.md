@@ -92,7 +92,7 @@ By using --target we can specify the type of build we want (https://cli.vuejs.or
 When you run npm run build, this script is gonna build a folder (by default dist) inside your root directory by webpack and we told vue.js to make it as a library and not a website.
 
 10. By running the build script, as you can see we have dist folder like this:<br>
-
+![dist folder after build](https://github.com/aliafsah1988/vue-lib-sample/blob/doc/aliafsah-dist-screen.png?raw=true)
 Each file can be used in a different situation.
 A lib build outputs:<br>
 
