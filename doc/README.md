@@ -19,18 +19,25 @@ If you don’t know about Webpack  and how to configure it, I strongly recommend
 How to create and use<br/>
 Now the steps:<br/>
 Install vue-cli to use its tools and templates. By below command we’re going to install it globally on our machine:<br/>
+```
 npm install -g @vue/cli
-Create a new project with it:<br/>
+```
+Create a new project with it:
+```
 vue create [your-awesome-project]
+```
 Set your required configurations:
 I’m just choosing Babel (https://babeljs.io/) and nothing more to have a very light project.
 Go to your root directory and open the project with your preferred editor or IDE. I use VsCode (https://code.visualstudio.com/). 
 Run the project with just typing:
+```
 npm run serve
+```
 As you can see it’s a simple template to run a simple vue project.
 Remove App.vue in the src folder. You don’t need it! Also you can get rid of logo.png in the assets folder and HelloWord.vue in components folder.
 Create your first component.
 I just created a simple component for this example.
+```
 <template>
   <button class="a-button">
     {{ text }}
@@ -60,71 +67,59 @@ export default {
   text-align: center;
 }
 </style>
- 
+```
 It’s a button which takes a string as a prop (text) and shows it in it’s Inner Html.
 8) Export this component to be used by others. For that:
 Add an index.js file into components folder with just below content:
+```
 import Button from './Button'
 export { Button }
+```
 It will export Button.vue by name to the upper layer.
 Then replace the content of the main.js in src folder with these:
+```
 export * from './components'
+```
 By that we’re saying to main.js to export everything in components directory as named export. You can use any other way you prefer.
 9) Replace your current build script in package.json with the line below:
-
+```
 "build": "vue-cli-service build --target lib --name ui-components src/main.js"
+```
 By using --target we can specify the type of build we want (https://cli.vuejs.org/guide/build-targets.html). Also we can declare a name and an entry point to start the building process and Webpack, in our case main.js.
 When you run npm run build, this script is gonna build a folder (by default dist) inside your root directory by webpack and we told vue.js to make it as a library and not a website.
 
-10) By running the build script, as you can see we have dist folder like this:
-
-W
+10) By running the build script, as you can see we have dist folder like this:<br>
 Each file can be used in a different situation.
-A lib build outputs:
+A lib build outputs:<br>
 
-dist/[YOUR_LIBRARY].common.js: A CommonJS bundle for consuming via bundlers.
-
-dist/[YOUR_LIBRARY].umd.js: A UMD bundle for consuming directly in browsers or with AMD loaders
-
-dist/[YOUR_LIBRARY].umd.min.js: Minified version of the UMD build.
-
+dist/[YOUR_LIBRARY].common.js: A CommonJS bundle for consuming via bundlers.<br>
+dist/[YOUR_LIBRARY].umd.js: A UMD bundle for consuming directly in browsers or with AMD loaders<br>
+dist/[YOUR_LIBRARY].umd.min.js: Minified version of the UMD build.<br>
 dist/[YOUR_LIBRARY].css: Extracted CSS file (can be forced into inlined by setting css: { extract: false } in vue.config.js)
-
-
+<br>
 11) So if we want to use this project as a dependency package, we should use [YOUR_LIBRARY].common.js as the primary entry point to our project. For that we just need to set the main property in package.json:
+```
 "main": "./dist/vue-lib-sample.common.js"
-
+```
 Note: If you’re using git, make sure you removed the dist folder from .gitignore file so you can have it on your remote repo.
-
 12) Now we can use it as a npm package or anyway we want. In this example I’m going to use it directly as a local dependency in another project.
 In my upper layer project I’m just installing our project as dependency with npm:
+```
 npm add [PATH_OF_PROJECT]
+```
 So my package.json will be updated like this:
-
+```
 "dependencies": {
     ...
     "vue-lib-sample": "file:[some_path]/vue-lib-sample"
 }
+```
 And as you can see it’s added to our node_modules:
 
 Note: In this approach (local dependency) you might face some linting issues. In my case I didn’t use any linting in both projects.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Now we can use our Button component in any where we want!
+```
 <template>
   <div class="hello">
     <Button size="small"
@@ -146,11 +141,7 @@ export default {
   }
 }
 </script>
-
+```
 
 Conclusion
 It’s a good practice to keep your components in a separated project, and isolate them from outside. They’re going to be reusable and you just need to change them in just one place. Also by adding a storybook you can make life easier for the whole team, including developers, designers and everybody else.
-
-You can find relate repo here:
-https://github.com/aliafsah1988/vue-lib-sample
-
