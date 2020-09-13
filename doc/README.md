@@ -93,6 +93,7 @@ When you run npm run build, this script is gonna build a folder (by default dist
 
 10. By running the build script, as you can see we have dist folder like this:<br>
 ![dist folder after build](https://github.com/aliafsah1988/vue-lib-sample/blob/doc/aliafsah-dist-screen.png?raw=true)
+<br>
 Each file can be used in a different situation.
 A lib build outputs:<br>
 
@@ -100,7 +101,7 @@ dist/[YOUR_LIBRARY].common.js: A CommonJS bundle for consuming via bundlers.<br>
 dist/[YOUR_LIBRARY].umd.js: A UMD bundle for consuming directly in browsers or with AMD loaders<br>
 dist/[YOUR_LIBRARY].umd.min.js: Minified version of the UMD build.<br>
 dist/[YOUR_LIBRARY].css: Extracted CSS file (can be forced into inlined by setting css: { extract: false } in vue.config.js)
-<br><br>
+<br>
 
 11. So if we want to use this project as a dependency package, we should use [YOUR_LIBRARY].common.js as the primary entry point to our project. For that we just need to set the main property in package.json:
 ```
@@ -148,5 +149,5 @@ export default {
 </script>
 ```
 
-Conclusion
+## Conclusion
 It’s a good practice to keep your components in a separated project, and isolate them from outside. They’re going to be reusable and you just need to change them in just one place. Also by adding a storybook you can make life easier for the whole team, including developers, designers and everybody else.
