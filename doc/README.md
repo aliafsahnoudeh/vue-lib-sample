@@ -34,7 +34,9 @@ I’m just choosing Babel (https://babeljs.io/) and nothing more to have a very 
 npm run serve
 ```
 As you can see it’s a simple template to run a simple vue project.
+
 6. Remove App.vue in the src folder. You don’t need it! Also you can get rid of logo.png in the assets folder and HelloWord.vue in components folder.
+
 7. Create your first component.
 I just created a simple component for this example.
 ```
@@ -69,6 +71,7 @@ export default {
 </style>
 ```
 It’s a button which takes a string as a prop (text) and shows it in it’s Inner Html.
+
 8. Export this component to be used by others. For that:
 Add an index.js file into components folder with just below content:
 ```
@@ -89,6 +92,7 @@ By using --target we can specify the type of build we want (https://cli.vuejs.or
 When you run npm run build, this script is gonna build a folder (by default dist) inside your root directory by webpack and we told vue.js to make it as a library and not a website.
 
 10. By running the build script, as you can see we have dist folder like this:<br>
+
 Each file can be used in a different situation.
 A lib build outputs:<br>
 
